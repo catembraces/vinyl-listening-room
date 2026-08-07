@@ -1,15 +1,10 @@
 // ABOUTME: React starter app showcasing the main playhtml capabilities.
 // ABOUTME: Demonstrates persistent data, presence, events, and built-in elements.
 
-import React, { useState } from "react";
 import { PlayProvider, CanSpinElement } from "@playhtml/react";
 import vinylImage from "./assets/red-vinyl-with-hand.jpg";
 
 function App() {
-  const [highlightedCapability, setHighlightedCapability] = useState<
-    string | null
-  >(null);
-
   // const capabilities = [
   //   "can-play",
   //   "can-move",
