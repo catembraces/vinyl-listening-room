@@ -1,10 +1,18 @@
 // ABOUTME: React starter app showcasing the main playhtml capabilities.
 // ABOUTME: Demonstrates persistent data, presence, events, and built-in elements.
-
-import { PlayProvider, CanSpinElement } from "@playhtml/react";
-import vinylImage from "./assets/red-vinyl-with-hand.jpg";
+import { useRef } from "react";
+import {
+  PlayProvider,
+  CanSpinElement,
+  CanDuplicateElement,
+} from "@playhtml/react";
+import vinylImage from "./assets/black-and-red-vinyl.webp";
+import groverWashington from "./assets/grover-washington-mister-magic.jpeg";
 
 function App() {
+  const template = useRef<HTMLDivElement>(null);
+  const field = useRef<HTMLDivElement>(null);
+
   // const capabilities = [
   //   "can-play",
   //   "can-move",
@@ -25,6 +33,17 @@ function App() {
         },
       }}
     >
+      <div id="album-cover-template" ref={template}>
+        {groverWashington}
+      </div>
+      {/* attempting to get record covers to be duplicates */}
+      {/* <div id="album-cover-field" ref={field}>
+        <CanDuplicateElement
+          children
+          elementToDuplicate={template}
+          canDuplicateTo={field}
+        ></CanDuplicateElement>
+      </div> */}
       <div
         style={{
           fontFamily: "HK Grotesk, sans-serif",
