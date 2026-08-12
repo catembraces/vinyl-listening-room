@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+{
+  /* REMOVED BECAUSE IT DOUBLE DUPLICATES MY CLONES */
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  {/* REMOVED BECAUSE IT DOUBLE DUPLICATES MY CLONES */}
   // <React.StrictMode>
   <App />,
   // </React.StrictMode>,
