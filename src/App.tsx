@@ -10,8 +10,14 @@ import vinylImage from "./assets/black-and-red-vinyl.webp";
 import groverWashington from "./assets/grover-washington-mister-magic.jpeg";
 
 function App() {
-  const template = useRef<HTMLDivElement>(null);
+  const template = useRef<HTMLImageElement>(null);
   const field = useRef<HTMLDivElement>(null);
+  {
+    /* TO DO THIS CLEARS OUT THE FIELD BUT WE NEED TO COMMUNICATE TO PLAYHTML THAT WE HAVE DONE THIS SO OTHER USERS CAN SEE THE CHANGE TOO*/
+  }
+  const removeClones = () => {
+    field.current.innerHTML = "";
+  };
 
   // const capabilities = [
   //   "can-play",
@@ -33,17 +39,6 @@ function App() {
         },
       }}
     >
-      <div id="album-cover-template" ref={template}>
-        {groverWashington}
-      </div>
-      {/* attempting to get record covers to be duplicates */}
-      {/* <div id="album-cover-field" ref={field}>
-        <CanDuplicateElement
-          children
-          elementToDuplicate={template}
-          canDuplicateTo={field}
-        ></CanDuplicateElement>
-      </div> */}
       <div
         style={{
           fontFamily: "HK Grotesk, sans-serif",
@@ -52,6 +47,24 @@ function App() {
           padding: "2rem",
         }}
       >
+        <img
+          id="album-cover-template"
+          ref={template}
+          src={groverWashington}
+          style={{
+            maxWidth: "200px",
+            display: "block",
+          }}
+        />
+        <div id="album-cover-field" ref={field} />
+        <CanDuplicateElement
+          elementToDuplicate={template}
+          canDuplicateTo={field}
+        >
+          <button>clone a record</button>
+        </CanDuplicateElement>
+        <button onClick={removeClones}>delete</button>
+
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <CanSpinElement>
             <img
